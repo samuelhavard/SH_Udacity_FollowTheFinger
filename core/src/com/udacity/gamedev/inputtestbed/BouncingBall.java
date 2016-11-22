@@ -77,10 +77,10 @@ public class BouncingBall extends InputAdapter {
         }
 
         // TODO: If we're following something, calculate the difference vector between the targetPosition and the ball's position
-        // TODO: Set the velocity to that vector times the FOLLOW_MULTIPLIER
+        // 1TODO: Set the velocity to that vector times the FOLLOW_MULTIPLIER
 
         if(ballFollowing){
-            
+
         }
 
 
