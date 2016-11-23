@@ -80,11 +80,10 @@ public class BouncingBall extends InputAdapter {
         // 1TODO: Set the velocity to that vector times the FOLLOW_MULTIPLIER
 
         if(ballFollowing){
-
+            Vector2 followVector = new Vector2(targetPosition.x - position.x, targetPosition.y - position.y);
+            velocity.x = FOLLOW_MULTIPLIER * followVector.x;
+            velocity.y = FOLLOW_MULTIPLIER * followVector.y;
         }
-
-
-
 
         // Movement
         if (Gdx.input.isKeyPressed(Keys.LEFT)) {
