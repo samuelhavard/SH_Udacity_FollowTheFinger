@@ -165,9 +165,9 @@ public class BouncingBall extends InputAdapter {
             flickStart = worldClick;
         } else {
             // TODO: Set the target position
-
+            targetPosition = worldClick;
             // TODO: Set the following flag
-
+            ballFollowing = true;
         }
 
 
@@ -177,9 +177,9 @@ public class BouncingBall extends InputAdapter {
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
         // TODO: If we're following, then update the target position (remember to unproject the touch location)
-
-
-
+        if (ballFollowing) {
+            targetPosition = viewport.unproject(new Vector2(screenX, screenY));
+        }
         return true;
     }
 
