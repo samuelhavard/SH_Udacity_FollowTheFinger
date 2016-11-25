@@ -195,7 +195,7 @@ public class BouncingBall extends InputAdapter {
         }
 
         // TODO: Reset the following flag
-
+        ballFollowing = false;
 
         return true;
     }
