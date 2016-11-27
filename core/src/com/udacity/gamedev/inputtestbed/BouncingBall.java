@@ -30,9 +30,7 @@ public class BouncingBall extends InputAdapter {
     Vector2 flickStart;
     boolean flicking = false;
 
-    // TODO: Declare a Vector2 to hold the ball's target position
     Vector2 targetPosition;
-    // TODO: Declare a boolean to hold whether the ball is following something (and set it to false)
     Boolean ballFollowing = false;
 
     float baseRadius;
@@ -75,9 +73,6 @@ public class BouncingBall extends InputAdapter {
             radiusMultiplier -= delta * RADIUS_GROWTH_RATE;
             radiusMultiplier = Math.max(radiusMultiplier, MIN_RADIUS_MULTIPLIER);
         }
-
-        // TODO: If we're following something, calculate the difference vector between the targetPosition and the ball's position
-        // 1TODO: Set the velocity to that vector times the FOLLOW_MULTIPLIER
 
         if(ballFollowing){
             Vector2 followVector = new Vector2(targetPosition.x - position.x, targetPosition.y - position.y);
@@ -164,9 +159,7 @@ public class BouncingBall extends InputAdapter {
             flicking = true;
             flickStart = worldClick;
         } else {
-            // TODO: Set the target position
             targetPosition = worldClick;
-            // TODO: Set the following flag
             ballFollowing = true;
         }
 
@@ -176,7 +169,6 @@ public class BouncingBall extends InputAdapter {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        // TODO: If we're following, then update the target position (remember to unproject the touch location)
         if (ballFollowing) {
             targetPosition = viewport.unproject(new Vector2(screenX, screenY));
         }
@@ -193,10 +185,7 @@ public class BouncingBall extends InputAdapter {
             velocity.y += 3 * (flickEnd.y - flickStart.y);
             Gdx.app.log("Ball", "End flick");
         }
-
-        // TODO: Reset the following flag
         ballFollowing = false;
-
         return true;
     }
 }
