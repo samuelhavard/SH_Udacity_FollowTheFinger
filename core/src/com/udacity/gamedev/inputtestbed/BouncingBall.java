@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.Random;
 
-
 public class BouncingBall extends InputAdapter {
 
     private static final Color COLOR = Color.RED;
@@ -41,7 +40,6 @@ public class BouncingBall extends InputAdapter {
 
     Viewport viewport;
 
-
     public BouncingBall(Viewport viewport) {
         this.viewport = viewport;
         init();
@@ -62,7 +60,6 @@ public class BouncingBall extends InputAdapter {
         velocity.y += KICK_VELOCITY * MathUtils.sin(angle);
     }
 
-
     public void update(float delta) {
 
         // Growing and shrinking
@@ -74,7 +71,7 @@ public class BouncingBall extends InputAdapter {
             radiusMultiplier = Math.max(radiusMultiplier, MIN_RADIUS_MULTIPLIER);
         }
 
-        if(ballFollowing){
+        if (ballFollowing) {
             Vector2 followVector = new Vector2(targetPosition.x - position.x, targetPosition.y - position.y);
             velocity.x = FOLLOW_MULTIPLIER * followVector.x;
             velocity.y = FOLLOW_MULTIPLIER * followVector.y;
@@ -104,7 +101,6 @@ public class BouncingBall extends InputAdapter {
 
         position.x += delta * velocity.x;
         position.y += delta * velocity.y;
-
 
         collideWithWalls(baseRadius * radiusMultiplier, viewport.getWorldWidth(), viewport.getWorldHeight());
     }
@@ -144,7 +140,6 @@ public class BouncingBall extends InputAdapter {
         if (keycode == Keys.R) {
             init();
         }
-
         return true;
     }
 
@@ -162,8 +157,6 @@ public class BouncingBall extends InputAdapter {
             targetPosition = worldClick;
             ballFollowing = true;
         }
-
-
         return true;
     }
 
